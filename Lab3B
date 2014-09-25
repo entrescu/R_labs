@@ -1,0 +1,16 @@
+#If we want to make a good guess about a population parameter from a sample statistic, we have to start making the sample
+
+population <- ames$Gr.Liv.Area
+samp <- sample(population, 60)
+
+#To answer what is the typical size in a house in Ames using the sample, we have to compute the mean of the sample
+
+sample_mean <- mean(samp)
+
+#How certain are we about this? If we want to make a 95% confidence interval, we can calculate it like this
+
+se <- sd(samp)/sqrt(60)
+lower <- sample_mean - 1.96*se
+upper <- sample_mean + 1.96*se
+c(lower, upper)
+
